@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <title>Content page-3</title>
+    <link rel="stylesheet" href="style3.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+    <header>
+        <h1>Welcome to Europe</h1>
+        
+    </header>
+
+    <div class="sidebar">
+     
+        <ul>
+            <li><a href="index.html">Home</a></li><br>
+            <li><a href="index2.html">Switzerland</a></li><br>
+            <li><a href="index3.html">To know </a></li><br>
+        </ul>
+    </div>
+ <div class="carousel">
+        <div class="carousel-images">
+            
+               <a href="Europe.pdf" target="_blank">  <img src="images/season1.jpg" alt=""></a>
+               
+              <img src="images/season2.jpg" alt="Season 2" id="seasonImage" style="cursor: pointer;">
+
+              <audio id="seasonAudio" src="audio/birds-ambiance-204513.mp3"></audio>
+          
+              <script>
+                  
+                  const image = document.getElementById('seasonImage');
+                  const audio = document.getElementById('seasonAudio');
+          
+                  
+                  image.addEventListener('click', function() {
+                      audio.play();
+                  });
+              </script>
+<img src="images/visit2.jpg" alt="Description of the image" />
+
+
+<video width="640" height="360" controls>
+    <source src="audio/video1.mp4" type="video/mp4">
+    <source src="audio/video1.mp4" type="video/ogg">
+    Your browser does not support the video tag.
+</video>        </div>
+        <button class="button prev" onclick="moveSlide(-1)">&#10094;</button>
+        <button class="button next" onclick="moveSlide(1)">&#10095;</button>
+
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2023 Europe &middot; All Rights Reserved</p>
+    </footer>
+
+    <script>
+        let slideIndex = 0;
+
+        function showSlides() {
+            const slides = document.querySelectorAll('.carousel-images img');
+            if (slideIndex >= slides.length) { slideIndex = 0; }
+            if (slideIndex < 0) { slideIndex = slides.length - 1; }
+            const offset = -slideIndex * 100; 
+            document.querySelector('.carousel-images').style.transform = 'translateX(' + offset + '%)'; 
+        }
+
+        function moveSlide(n) {
+            slideIndex += n;
+            showSlides();
+        }
+
+        
+        showSlides();
+    </script>
+</body>
+</html>
